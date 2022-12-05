@@ -1,8 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.Files;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -49,7 +46,7 @@ public class FleetManagement {
         String line = "";
         Boat newBoat = new Boat();
 
-        //--the try-catch block reads the file
+        //--The try-catch block reads the file
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
 
@@ -232,7 +229,7 @@ public class FleetManagement {
         //--Here it asks for user input which will then be converted to make the first letter of each word upper case
         System.out.print("Which boat would you like to remove? : ");
         boatName = keyboard.nextLine();
-        //--let's play with something
+
         String[] boatNameArray = boatName.split(" ");
         for(stringIndex = ZERO; stringIndex <boatNameArray.length; stringIndex++){
             boatNameArray[stringIndex] = boatNameArray[stringIndex].toLowerCase();
@@ -291,7 +288,7 @@ public class FleetManagement {
 
         keyboard.nextLine();
 
-        //--Here the use selects a boat to spend money on
+        //--Here the user selects a boat to spend money on
         System.out.print("Which boat do you want to spend on? : ");
         boatToSpendOn = keyboard.nextLine();
 
