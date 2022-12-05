@@ -1,4 +1,6 @@
-public class Boat {
+import java.io.Serializable;
+
+public class Boat implements Serializable {
     //-----------------------------------------------------------------------
     public enum type{POWER,SAILING};
 
@@ -37,7 +39,6 @@ public class Boat {
                 + getPurchasePrice() + "  :  Spent $     " + expenses);
     }
 
-    //-----------------------------------------------------------------------
 
     //-----------------------------------------------------------------------
     public void setType(){
@@ -90,18 +91,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public double getExpenses() {
 
-        //--this may cause some sort of problem when run, so double check
-        /*double subtractFromPurchasePrice = purchasePrice;
-
-        if(newExpense < subtractFromPurchasePrice){
-            this.expenses = newExpense;
-            subtractFromPurchasePrice -= this.expenses;
-            return ("Expense authorized, $" + newExpense + " spend.");
-        }
-        else{
-            return ("Expense not permitted, only $" + subtractFromPurchasePrice + "left to spend.");
-        }
-*/      return this.expenses;
+        return this.expenses;
     }
     //-----------------------------------------------------------------------
     public void setExpenses(double amountToSpend){

@@ -20,11 +20,23 @@ public class FleetManagement {
 
     public static void main(String[] args) {
 
+        String fileName;
+        Boat newBoat = new Boat();
+
         ArrayList<Boat>fleet = new ArrayList<Boat>();
         String path = "C:\\Users\\Ailis\\Desktop\\CSC120_LAB\\FleetData.csv";
-        initFromCSVFile(path, fleet);
+
+
+        if (args.length > ZERO){
+            initFromCSVFile(path, fleet);
+        }
+        else{
+            initFromObjectFile(fleet);
+        }
 
         menu(fleet);
+
+        writeFleetObjectFile(path,fleet);
 
     }
     //-----------------------------------------------------------------------
@@ -49,6 +61,38 @@ public class FleetManagement {
             e.printStackTrace();
         }
         return(fleet);
+    }
+    //-----------------------------------------------------------------------
+    private static ArrayList<Boat> initFromObjectFile(ArrayList<Boat>fleet){
+
+        ObjectInputStream fromStream = null;
+
+
+        return(fleet);
+    }
+    //-----------------------------------------------------------------------
+    private static boolean writeFleetObjectFile(String fileName,ArrayList<Boat>fleet ){
+
+        ObjectOutputStream toStream = null;
+
+        try{
+            toStream = new ObjectOutputStream(new FileOutputStream(fileName));
+            toStream.writeObject(fleet);
+            return true;
+        } catch (IOException e){
+            System.out.println("ERROR saving " + e.getMessage());
+            return false;
+        } finally {
+            if (toStream != null){
+                try{
+                    toStream.close();
+                } catch(IOException e){
+                    System.out.println("ERROR closing " + e.getMessage());
+                    return false;
+                }
+            }
+        }
+
     }
     //-----------------------------------------------------------------------
     public static Boat createBoat(String[] attributes){
